@@ -9,11 +9,13 @@
 <html>
 <head>
     <title>List</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container">
 <h2>To-Do-List</h2>
 
-<table border="1">
+<table class='table' border="1">
 
     <th>Item</th>
     <th>Date</th>
@@ -42,10 +44,35 @@
 
 </c:choose>
     </c:forEach>
+    <div class="form-group">
     <input type="text" name="item">
     <input type="submit" value="Add">
+    </div>
+    <html>
+<head>lab2</head>
+<body>
+<h2>Haiyan Wang</h2>
+Repo: https://github.com/haiyanwa/toDoList</br></br>
+
+forked the main repo from github, then</br>
+git clone https://github.com/haiyanwa/toDoList</br></br>
+
+after made changes to ViewItems.jsp</br>
+git add ViewItems.jsp</br>
+git commit -m 'Add bootstrap css'</br></br>
+
+git remote -v</br>
+origin	https://github.com/haiyanwa/toDoList (fetch)</br>
+origin	https://github.com/haiyanwa/toDoList (push)</br>
+git push origin master</br></br>
+
+Then sent a pull request from the github GUI</br>
+
+</body>
+</html>
 
  </form>
 </table>
+</div>
 </body>
 </html>
