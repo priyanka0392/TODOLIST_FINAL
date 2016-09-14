@@ -19,33 +19,33 @@
     <th>Date</th>
     <th>Status</th>
 
-    <form method="post" action="AddItemsServlet">
-        <c:forEach items="${items}" var="itemsList" >
+<form method="post" action="AddItemsServlet">
+    <c:forEach items="${items}" var="itemsList" >
 
-            <c:choose>
-                <c:when test="${itemsList.status.equals('X')}">
-                    <tr>
-                        <td>${itemsList.itemName}</td>
-                        <td>${itemsList.date}</td>
-                        <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></td>
-                    </tr>
+<c:choose>
+        <c:when test="${itemsList.status.equals('X')}">
+            <tr>
+                <td>${itemsList.itemName}</td>
+                <td>${itemsList.date}</td>
+                <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></td>
+            </tr>
 
-                </c:when>
-                <c:otherwise>
+        </c:when>
+    <c:otherwise>
 
-                    <tr>
-                        <td><strike>${itemsList.itemName}</strike></td>
-                        <td><strike>${itemsList.date}</strike></td>
-                        <td><strike><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></strike></td>
-                    </tr>
-                </c:otherwise>
+        <tr>
+            <td><strike>${itemsList.itemName}</strike></td>
+            <td><strike>${itemsList.date}</strike></td>
+            <td><strike><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></strike></td>
+        </tr>
+    </c:otherwise>
 
-            </c:choose>
-        </c:forEach>
-        <input type="text" name="item">
-        <input type="submit" value="Add">
+</c:choose>
+    </c:forEach>
+    <input type="text" name="item">
+    <input type="submit" value="Add">
 
-    </form>
+ </form>
 </table>
 </body>
 </html>
