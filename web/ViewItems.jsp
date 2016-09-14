@@ -53,8 +53,8 @@
         <form method="post" action="AddItemsServlet">
             <c:forEach items="${items}" var="itemsList" >
 
-                <c:choose>
-                    <c:when test="${itemsList.status.equals('X')}">
+            
+                    <c:if test="${itemsList.status.equals('X')}">
                         <tr>
                             <td>${itemsList.itemName}</td>
                             <td>${itemsList.date}
@@ -66,15 +66,8 @@
                             <td></td>
                         </tr>
 
-                    </c:when>
-                    <c:otherwise>
-
-
-
-
-                    </c:otherwise>
-
-                </c:choose>
+                    </c:if>
+                  
             </c:forEach>
             <input type="text" name="item">
             <input type="submit" value="Add">
@@ -94,13 +87,11 @@
         <th>Completion Date</th>
 
         <c:forEach items="${items}" var="itemsList" >
-            <c:choose>
-                <c:when test="${itemsList.status.equals('X')}">
+           
+                <c:if test="${itemsList.status.equals('X')}">
 
 
-                </c:when>
-
-                <c:otherwise>
+                
                     <tr>
                         <td>${itemsList.itemName}</td>
                         <td>
@@ -111,10 +102,8 @@
                                 ${itemsList.date}
                         </td>
                     </tr>
-
-                </c:otherwise>
-
-            </c:choose>
+</c:if>
+                
         </c:forEach>
 
 
