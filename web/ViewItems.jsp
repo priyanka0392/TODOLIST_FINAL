@@ -27,7 +27,9 @@
                     <tr>
                         <td>${itemsList.itemName}</td>
                         <td>${itemsList.date}</td>
-                        <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></td>
+                        <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">
+                            <img src='images/my.gif'     style=" width:22px;height:22px "> </a></td>
+
                     </tr>
 
                 </c:when>
