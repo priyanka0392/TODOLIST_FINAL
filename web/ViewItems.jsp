@@ -21,6 +21,7 @@
     <th>Date</th>
     <th>Status</th>
 
+<<<<<<< HEAD
 <form method="post" action="AddItemsServlet">
     <c:forEach items="${items}" var="itemsList" >
 
@@ -72,6 +73,37 @@ Then sent a pull request from the github GUI</br>
 </html>
 
  </form>
+=======
+    <form method="post" action="AddItemsServlet">
+        <c:forEach items="${items}" var="itemsList" >
+
+            <c:choose>
+                <c:when test="${itemsList.status.equals('X')}">
+                    <tr>
+                        <td>${itemsList.itemName}</td>
+                        <td>${itemsList.date}</td>
+                        <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">
+                            <img src='images/my.gif'     style=" width:22px;height:22px "> </a></td>
+
+                    </tr>
+
+                </c:when>
+                <c:otherwise>
+
+                    <tr>
+                        <td><strike>${itemsList.itemName}</strike></td>
+                        <td><strike>${itemsList.date}</strike></td>
+                        <td><strike><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></strike></td>
+                    </tr>
+                </c:otherwise>
+
+            </c:choose>
+        </c:forEach>
+        <input type="text" name="item">
+        <input type="submit" value="Add">
+
+    </form>
+>>>>>>> 58f08d66e5e8cb89a0a6eb7e62a34d342e424a64
 </table>
 </div>
 </body>
