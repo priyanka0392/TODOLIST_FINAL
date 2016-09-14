@@ -6,48 +6,43 @@
 <%@ page import="model.*" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
     <title>List</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
-<h2>To-Do-List</h2>
+<div class="container">
+    <table class='table' border="1">
+        th>Item</th>
+        <th>Date</th>
+        <th>Status</th>
+<form method="post" action="AddItemsServlet">
 
-<table border="1">
+    <c:forEach items="${items}" var="itemsList" >
 
-    <th>Item</th>
-    <th>Date</th>
-    <th>Status</th>
+        <c:choose>
+            <c:when test="${itemsList.status.equals('X')}">
+                <tr>
+                    <td>${itemsList.itemName}</td>
+                    <td>${itemsList.date}</td>
+                    <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">
+                        <img src='images/my.gif'     style=" width:22px;height:22px "> </a></td>
 
-    <form method="post" action="AddItemsServlet">
-        <c:forEach items="${items}" var="itemsList" >
+                </tr>
 
-            <c:choose>
-                <c:when test="${itemsList.status.equals('X')}">
-                    <tr>
-                        <td>${itemsList.itemName}</td>
-                        <td>${itemsList.date}</td>
-                        <td><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">
-                            <img src='images/my.gif'     style=" width:22px;height:22px "> </a></td>
+            </c:when>
 
-                    </tr>
 
-                </c:when>
-                <c:otherwise>
+        </c:choose>
+    </c:forEach>
 
-                    <tr>
-                        <td><strike>${itemsList.itemName}</strike></td>
-                        <td><strike>${itemsList.date}</strike></td>
-                        <td><strike><a href="EditServlet?param1=${itemsList.status }&param2=${itemsList.itemName} ">${itemsList.status }</a></strike></td>
-                    </tr>
-                </c:otherwise>
+</form>
 
-            </c:choose>
-        </c:forEach>
-        <input type="text" name="item">
-        <input type="submit" value="Add">
-
-    </form>
-</table>
+      </table>
+    </div>
+</div>
 </body>
 </html>
+
